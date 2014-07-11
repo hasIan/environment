@@ -42,7 +42,7 @@ gcd() {
 	works with that.
 
 	"github.com" and "code.google.com/p" will automatically be prefixed
-	when looking for a target directory. Additionally will first look
+	when looking for a target directory. Additionally, will first look
 	for <target> under your github user name (currently "$github_user",
 	configurable with the GITHUB_USER environment variable) so that you
 	don't have to specify a user directory if you're changing into your
@@ -60,14 +60,14 @@ GCD_USAGE
 
   local searchpath="github.com code.google.com/p"
   local d
+  local candidates
   local candidate
 
   for d in `echo $searchpath`; do
     candidates="$gopath/$topdir/$d/$github_user/$target $gopath/$topdir/$d/$target $gopath/$topdir/$d/$USER/$target"
     for candidate in `echo $candidates`; do
       if [ -d "$candidate" ]; then
-				echo "Trying $candidate"
-				$cd "$candidate"
+        $cd "$candidate"
         return
       fi
     done
