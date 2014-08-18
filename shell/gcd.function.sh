@@ -53,7 +53,7 @@ GCD_USAGE
     return
   fi
 
-  if [ "$target" == "/" ]; then
+  if [ "$target" = "/" ]; then
     $cd $gopath
      return
   fi
